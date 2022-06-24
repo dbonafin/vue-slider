@@ -37,7 +37,8 @@
                         <!-- here the function that shows the next element (x++) & at the end restart from the first element --> 
                         <div @click="showNext()" class="next"></div>
 
-                        <div v-for="(slide, index) in slides" class="thumb" :class="{'active': index === activeElement}">
+                        <div v-for="(slide, index) in slides" @click="activateSlide()" class="thumb" 
+                            :class="index === activeElement ? 'active' : 'activeSlide'">
                             <img :src="slide.image" :alt="slides.title"/>
                         </div>
 
