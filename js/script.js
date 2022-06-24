@@ -2,6 +2,7 @@ var app = new Vue(
     {   
         el: "#root",
         data: {
+            autoplayClock: null,
             activeElement: 0,
             slides: [
                 {
@@ -45,7 +46,13 @@ var app = new Vue(
                 } else {
                     this.activeElement = this.slides.length - 1;
                 }
-            }
+            },
+            startAutoplay() {
+                this.autoplayClock = setInterval(this.showNext, 3000);
+            },
+        },
+        mounted() {
+            this.startAutoplay();
         }
     }
 );
