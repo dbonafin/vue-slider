@@ -2,7 +2,6 @@ var app = new Vue(
     {   
         el: "#root",
         data: {
-            activeSlide: false,
             autoplayClock: null,
             activeElement: 0,
             slides: [
@@ -48,8 +47,8 @@ var app = new Vue(
                     this.activeElement = this.slides.length - 1;
                 }
             },
-            activateSlide() {
-                this.activeSlide = !this.activeSlide;
+            activateSlide(index) {
+                this.activeElement = index;
             },
             startAutoplay() {
                 this.autoplayClock = setInterval(this.showNext, 3000);
