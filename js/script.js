@@ -50,6 +50,10 @@ var app = new Vue(
             startAutoplay() {
                 this.autoplayClock = setInterval(this.showNext, 3000);
             },
+            stopCounter() {
+                clearInterval(this.autoplayClock);
+                this.autoplayClock = null;
+            },
         },
         mounted() {
             this.startAutoplay();
